@@ -6,7 +6,7 @@ import 'package:carousel_slider/carousel_state.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'carousel_controller.dart';
+import 'carousel_controller.dart' as ctrl;
 import 'carousel_options.dart';
 import 'utils.dart';
 
@@ -31,7 +31,7 @@ class CarouselSlider extends StatefulWidget {
   final ExtendedIndexedWidgetBuilder? itemBuilder;
 
   /// A [MapController], used to control the map.
-  final CarouselControllerImpl _carouselController;
+  final ctrl.CarouselControllerImpl _carouselController;
 
   final int? itemCount;
 
@@ -44,8 +44,8 @@ class CarouselSlider extends StatefulWidget {
       : itemBuilder = null,
         itemCount = items != null ? items.length : 0,
         _carouselController = carouselController != null
-            ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl,
+            ? carouselController as ctrl.CarouselControllerImpl
+            : CarouselController() as ctrl.CarouselControllerImpl,
         super(key: key);
 
   /// The on demand item builder constructor
@@ -58,8 +58,8 @@ class CarouselSlider extends StatefulWidget {
       Key? key})
       : items = null,
         _carouselController = carouselController != null
-            ? carouselController as CarouselControllerImpl
-            : CarouselController() as CarouselControllerImpl,
+            ? carouselController as ctrl.CarouselControllerImpl
+            : CarouselController() as ctrl.CarouselControllerImpl,
         super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class CarouselSlider extends StatefulWidget {
 
 class CarouselSliderState extends State<CarouselSlider>
     with TickerProviderStateMixin {
-  final CarouselControllerImpl carouselController;
+  final ctrl.CarouselControllerImpl carouselController;
   Timer? timer;
 
   CarouselOptions get options => widget.options;
